@@ -3,7 +3,7 @@
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License
 
-# Alpha User Bot #
+# Ejderha User Bot #
 """ UserBot hazırlanışı """
 
 import os
@@ -30,11 +30,11 @@ ASYNC_POOL = []
 
 if CONSOLE_LOGGER_VERBOSE:
     basicConfig(
-        format="%(asctime)s - @Alphasupportaz - %(levelname)s - %(message)s",
+        format="%(asctime)s - @Ejderhasupportaz - %(levelname)s - %(message)s",
         level=DEBUG,
     )
 else:
-    basicConfig(format="%(asctime)s - @Alphasupportaz - %(levelname)s - %(message)s",
+    basicConfig(format="%(asctime)s - @Ejderhasupportaz - %(levelname)s - %(message)s",
                 level=INFO)
 LOGS = getLogger(__name__)
 
@@ -59,8 +59,8 @@ if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
     LOGS.info("Namelum dil yazıdnız buna göre AZ dil işledilir.")
     LANGUAGE = "AZ"
     
-# Alpha Version
-ALPHA_VERSION = "v1.2"
+# Ejderha Version
+EJDERHA_VERSION = "v1.0"
 
 # Telegram API KEY ve HASH
 API_KEY = os.environ.get("API_KEY", None)
@@ -70,10 +70,10 @@ SILINEN_PLUGIN = {}
 # UserBot Session String
 STRING_SESSION = os.environ.get("STRING_SESSION", None)
 
-# Alpha
+# Ejderha
 BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", None))
 
-# Alpha
+# Ejderha
 BOTLOG = sb(os.environ.get("BOTLOG", "False"))
 LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
 
@@ -88,13 +88,13 @@ HEROKU_APIKEY = os.environ.get("HEROKU_APIKEY", None)
 # Yenileme üçün repo linki
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
-    "https://github.com/Goqerti/Alpha-UserBot.git")
+    "https://github.com/Goqerti/Ejderha-UserBot.git")
 
 # Konsol gündeliy
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
 # SQL 
-DB_URI = os.environ.get("DATABASE_URL", "sqlite:///alpha.db")
+DB_URI = os.environ.get("DATABASE_URL", "sqlite:///ejderha.db")
 
 # OCR API
 OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
@@ -115,7 +115,7 @@ if not WARN_MODE in ["gmute", "gban"]:
 # Qaleriya
 QALERIYA_VAXT = int(os.environ.get("QALERIYA_VAXT", 60))
 
-# AlphaUserBot
+# EjderhaUserBot
 CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
 GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
 
@@ -148,7 +148,7 @@ TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
 
 # Last.fm 
-BIO_PREFIX = os.environ.get("BIO_PREFIX", "@AlphaUserBot | ")
+BIO_PREFIX = os.environ.get("BIO_PREFIX", "@EjderhaUserBot | ")
 DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
 
 LASTFM_API = os.environ.get("LASTFM_API", None)
@@ -185,14 +185,14 @@ PM_AUTO_BAN_LIMIT = int(os.environ.get("PM_AUTO_BAN_LIMIT", 4))
 SPOTIFY_DC = os.environ.get("SPOTIFY_DC", None)
 SPOTIFY_KEY = os.environ.get("SPOTIFY_KEY", None)
 
-PAKET_ISMI = os.environ.get("PAKET_ISMI", "@AlphaUserBot Paketi")
+PAKET_ISMI = os.environ.get("PAKET_ISMI", "@EjderhaUserBot Paketi")
 
 # Avto qatılma
 AVTO_QATILMA = sb(os.environ.get("AVTO_QATILMA", "True"))
 
 # Patternler
 PATTERNS = os.environ.get("PATTERNS", ".;!,")
-WHITELIST = get('https://raw.githubusercontent.com/goqerti/alpha-userbot/main/whitelist.json').json()
+WHITELIST = get('https://raw.githubusercontent.com/goqerti/ejderha-userbot/main/whitelist.json').json()
 
 # CloudMail.ru ve MEGA.nz 
 if not os.path.exists('bin'):
@@ -280,8 +280,8 @@ def butonlastir(sayfa, moduller):
 with bot:
     if AVTO_QATILMA:
         try:
-            bot(JoinChannelRequest("@Alphasupportaz"))
-            bot(JoinChannelRequest("@AlphaUserBot"))
+            bot(JoinChannelRequest("@Ejderhasupportaz"))
+            bot(JoinChannelRequest("@EjderhaUserBot"))
         except:
             pass
 
@@ -293,21 +293,21 @@ with bot:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
             if not event.message.from_id == uid:
-                await event.reply(f'`Salam mən` @AlphaUserBot`! Mən sahibimə (`@{me.username}`) kömək etmək üçün varam, yəni sənə kömək edə bilmərəm :( Amma səndə Alpha User Bot qura bilərsən Dəstək qrupumuza gəl` @Alphasupportaz')
+                await event.reply(f'`Salam mən` @EjderhaUserBot`! Mən sahibimə (`@{me.username}`) kömək etmək üçün varam, yəni sənə kömək edə bilmərəm :( Amma səndə Ejderha User Bot qura bilərsən Dəstək qrupumuza gəl` @Ejderhasupportaz')
             else:
-                await event.reply(f'`Alpha User Bot İşləyir🔥`')
+                await event.reply(f'`Ejderha User Bot İşləyir🔥`')
 
         @tgbot.on(InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query == "@AlphaUserBot":
+            if event.query.user_id == uid and query == "@EjderhaUserBot":
                 rev_text = query[::-1]
                 veriler = (butonlastir(0, sorted(CMD_HELP)))
                 result = await builder.article(
                     f"Zəhmət olmasa sadəcə .kömek ilə kömək istəyin.",
-                    text=f"**Alpha Əla İşləyir 🔥** [Alpha User Bot](https://t.me/alphauserbot) __İşləyir...__\n\n**Yüklənən Modul Sayı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
+                    text=f"**Ejderha Əla İşləyir 🔥** [Ejderha User Bot](https://t.me/ejderhauserbot) __İşləyir...__\n\n**Yüklənən Modul Sayı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
                     buttons=veriler[1],
                     link_preview=False
                 )
@@ -323,14 +323,14 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    "@AlphaUserBot",
-                    text="""@AlphaUserBot işlədin
+                    "@EjderhaUserBot",
+                    text="""@EjderhaUserBot işlədin
 Hesabınızı bot'a çevirə bilərsiz və bunları işlədə bilərsiz. Unutmayın, siz başqasının botunu idarə etməssiniz! Altdakı GitHub adresində bütün qurulum detayları var""",
                     buttons=[
-                        [custom.Button.url("Kanal", "https://t.me/alphauserbot"), custom.Button.url(
-                            "Qrup", "https://t.me/alphasupportaz")],
+                        [custom.Button.url("Kanal", "https://t.me/ejderhauserbot"), custom.Button.url(
+                            "Qrup", "https://t.me/ejderhasupportaz")],
                         [custom.Button.url(
-                            "GitHub", "https://github.com/goqerti/alphauserbot")]
+                            "GitHub", "https://github.com/goqerti/ejderhauserbot")]
                     ],
                     link_preview=False
                 )
@@ -339,11 +339,11 @@ Hesabınızı bot'a çevirə bilərsiz və bunları işlədə bilərsiz. Unutmay
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"sayfa\((.+?)\)")))
         async def sayfa(event):
             if not event.query.user_id == uid: 
-                return await event.answer("Hey! Mənim mesajlarımı düzəltməyə çalışma! Özünə bir @AlphaUserBot qur.", cache_time=0, alert=True)
+                return await event.answer("Hey! Mənim mesajlarımı düzəltməyə çalışma! Özünə bir @EjderhaUserBot qur.", cache_time=0, alert=True)
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonlastir(sayfa, CMD_HELP)
             await event.edit(
-                f"**Alpha Əla İşləyir🔥** [Alpha User Bot](https://t.me/Alphauserbot) __İşləyir...__\n\n**Yüklənən Modul Sayı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
+                f"**Ejderha Əla İşləyir🔥** [Ejderha User Bot](https://t.me/Ejderhauserbot) __İşləyir...__\n\n**Yüklənən Modul Sayı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False
             )
@@ -351,7 +351,7 @@ Hesabınızı bot'a çevirə bilərsiz və bunları işlədə bilərsiz. Unutmay
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
-                return await event.answer("Hey! Mənim mesajlarımı düzəltməyə çalışma! Özünə bir @AlphaUserBot qur..", cache_time=0, alert=True)
+                return await event.answer("Hey! Mənim mesajlarımı düzəltməyə çalışma! Özünə bir @EjderhaUserBot qur..", cache_time=0, alert=True)
 
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             komut = event.data_match.group(2).decode("UTF-8")
@@ -371,7 +371,7 @@ Hesabınızı bot'a çevirə bilərsiz və bunları işlədə bilərsiz. Unutmay
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"komut\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def komut(event):
             if not event.query.user_id == uid: 
-                return await event.answer("Hey! Mənim mesajlarımı düzəltməyə çalışma! Özünə bir @AlphaUserBot qur.", cache_time=0, alert=True)
+                return await event.answer("Hey! Mənim mesajlarımı düzəltməyə çalışma! Özünə bir @EjderhaUserBot qur.", cache_time=0, alert=True)
 
             cmd = event.data_match.group(1).decode("UTF-8")
             sayfa = int(event.data_match.group(2).decode("UTF-8"))
@@ -412,7 +412,7 @@ Hesabınızı bot'a çevirə bilərsiz və bunları işlədə bilərsiz. Unutmay
         LOGS.info(
             "Botunuzda inline modu deaktiv edildi. "
             "Aktivleşdirmek üçün bir bot token yazın ve inline modunu açın. "
-            "Eger bunnan başqa probleminiz varsa bize yazın @Alphasupportaz."
+            "Eger bunnan başqa probleminiz varsa bize yazın @Ejderhasupportaz."
         )
 
     try:

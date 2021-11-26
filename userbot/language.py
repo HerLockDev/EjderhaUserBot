@@ -11,7 +11,7 @@ LOGS.info("Dil faylı yüklenir...")
 LANGUAGE_JSON = None
 
 for dil in bot.iter_messages(pchannel, filter=InputMessagesFilterDocument):
-    if ((len(dil.file.name.split(".")) >= 2) and (dil.file.name.split(".")[1] == "alphajson")):
+    if ((len(dil.file.name.split(".")) >= 2) and (dil.file.name.split(".")[1] == "ejderhajson")):
         if path.isfile(f"./userbot/language/{dil.file.name}"):
             try:
                 LANGUAGE_JSON = loads(open(f"./userbot/language/{dil.file.name}", "r").read())
@@ -19,9 +19,9 @@ for dil in bot.iter_messages(pchannel, filter=InputMessagesFilterDocument):
                 dil.delete()
                 remove(f"./userbot/language/{dil.file.name}")
 
-                if path.isfile("./userbot/language/DEFAULT.alphajson"):
+                if path.isfile("./userbot/language/DEFAULT.ejderhajson"):
                     LOGS.warn("Varsayılan dil faylı işledilir...")
-                    LANGUAGE_JSON = loads(open(f"./userbot/language/DEFAULT.alphajson", "r").read())
+                    LANGUAGE_JSON = loads(open(f"./userbot/language/DEFAULT.ejderhajson", "r").read())
                 else:
                     raise Exception("Dil faylı sehfdir.")
         else:
@@ -30,23 +30,23 @@ for dil in bot.iter_messages(pchannel, filter=InputMessagesFilterDocument):
                 LANGUAGE_JSON = loads(open(DOSYA, "r").read())
             except JSONDecodeError:
                 dil.delete()
-                if path.isfile("./userbot/language/DEFAULT.alphajson"):
+                if path.isfile("./userbot/language/DEFAULT.ejderhajson"):
                     LOGS.warn("Varsayıl dil faylı işledilir...")
-                    LANGUAGE_JSON = loads(open(f"./userbot/language/DEFAULT.alphajson", "r").read())
+                    LANGUAGE_JSON = loads(open(f"./userbot/language/DEFAULT.ejderhajson", "r").read())
                 else:
                     raise Exception("Dil faylı sehfdir.")
         break
 
 if LANGUAGE_JSON == None:
-    if path.isfile(f"./userbot/language/{LANGUAGE}.alphajson"):
+    if path.isfile(f"./userbot/language/{LANGUAGE}.ejderhajson"):
         try:
-            LANGUAGE_JSON = loads(open(f"./userbot/language/{LANGUAGE}.alphajson", "r").read())
+            LANGUAGE_JSON = loads(open(f"./userbot/language/{LANGUAGE}.ejderhajson", "r").read())
         except JSONDecodeError:
             raise Exception("Sehf json faylı")
     else:
-        if path.isfile("./userbot/language/DEFAULT.alphajson"):
+        if path.isfile("./userbot/language/DEFAULT.ejderhajson"):
             LOGS.warn("Varsayılan dil faylı işledilir...")
-            LANGUAGE_JSON = loads(open(f"./userbot/language/DEFAULT.alphajson", "r").read())
+            LANGUAGE_JSON = loads(open(f"./userbot/language/DEFAULT.ejderhajson", "r").read())
         else:
             raise Exception(f"{LANGUAGE} faylı tapılmadı")
 
